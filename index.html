@@ -1,0 +1,80 @@
+<html>
+  <head>
+      <meta charset="utf-8">
+    <title>Atomizer Web</title>
+    <link href='http://fonts.googleapis.com/css?family=Fira+Mono' rel='stylesheet'>
+    <link href='style.css' rel='stylesheet'>
+    <meta content='Atomic CSS on steroids' name='description'>
+  </head>
+  <body>
+    <div class='wrapper'>
+      <div class='top-section'>
+        <header>
+          <h1>
+            Atomizer <span>Web</span> — <cite>Atomic CSS on steroids | <a href="http://pankajparashar.com">@pankajparashar</a></cite>
+          </h1>
+        </header>
+      </div>
+      <div class='app-section'>
+        <div class='tabs-section'>
+          <div class='tab css'>
+            <h2>Markup <label for='page_css'>(paste your markup here)</label></h2>
+          </div>
+          <div class='tab sass'>
+            <h2>Atomic CSS <label for='page_sass'>(copy into your css file)</label></h2>
+          </div>
+        </div>
+        <div class='code-section'>
+          <form action='/' id='page' method='POST'>
+            <div class='code-container left'>
+              <textarea id='markup'></textarea>
+            </div>
+            <div class='code-container right'>
+              <textarea id='atomic_css'></textarea>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="atomizer-web.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            markup = $('#markup');
+            atomicCSS = $('#atomic_css');
+
+            // Example
+            markup.val('<div class="Bgc(#0280ae.5) C(#fff) P(20px)">\n\tLorem ipsum\n</div>');
+            atomize();
+
+            markup.on('keyup', atomize);
+
+            function atomize(){
+                var Atomizer = require('Atomizer');
+                var atomizer = new Atomizer();
+
+                var defaultConfig = {
+                    "breakPoints": {
+                        'sm': '@media(min-width=750px)',
+                        'md': '@media(min-width=1000px)',
+                        'lg': '@media(min-width=1200px)'
+                    },
+                    "custom": {
+                        "1": "1px solid #000",
+                        "foo": "2px dotted #f00"
+                    },
+                    "classNames": [
+                    ]
+                };
+
+                var foundClasses = atomizer.findClassNames(markup.val());
+                var finalConfig = atomizer.getConfig(foundClasses, defaultConfig);
+                var acss = atomizer.getCss(finalConfig);
+                atomicCSS.val(acss);
+            }
+        });
+    </script>
+  </body>
+</html>
