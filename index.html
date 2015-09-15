@@ -1,27 +1,27 @@
 <html>
   <head>
       <meta charset="utf-8">
-    <title>Atomizer Web</title>
-    <link href='http://fonts.googleapis.com/css?family=Fira+Mono' rel='stylesheet'>
-    <link href='style.css' rel='stylesheet'>
-    <meta content='Atomic CSS on steroids' name='description'>
+      <title>Atomizer Web</title>
+
+      <link href='style.css' rel='stylesheet'>
+      <meta content='Web app for Aotmizer - Atomic CSS on steroids' name='description'>
   </head>
   <body>
     <div class='wrapper'>
       <div class='top-section'>
         <header>
           <h1>
-            Atomizer <span>Web</span> — <cite>Atomic CSS on steroids | <a href="http://pankajparashar.com">@pankajparashar</a></cite>
+            Atomizer <span>Web</span> — <cite>Atomic CSS on steroids | by <a href="http://pankajparashar.com">@pankajparashar</a> | Report Issues on <a href="https://github.com/pankajparashar/atomizer-web">Github</a></cite>
           </h1>
         </header>
       </div>
       <div class='app-section'>
         <div class='tabs-section'>
           <div class='tab css'>
-            <h2>Markup <label for='page_css'>(paste your markup here)</label></h2>
+            <h2>Markup <a href="#" class="options">config</a></h2>
           </div>
           <div class='tab sass'>
-            <h2>Atomic CSS <label for='page_sass'>(copy into your css file)</label></h2>
+            <h2>Atomic CSS <a href="#" class="options" id="select-all">select all</a></h2>
           </div>
         </div>
         <div class='code-section'>
@@ -44,12 +44,16 @@
         $(document).ready(function(){
             markup = $('#markup');
             atomicCSS = $('#atomic_css');
+            selectAll = $('#select-all');
 
             // Example
-            markup.val('<div class="Bgc(#0280ae.5) C(#fff) P(20px)">\n\tLorem ipsum\n</div>');
+            markup.val('<!-- \n  Paste your markup here \n-->\n\n<div class="Bgc(#0280ae.5) C(#fff) P(20px)">\n  Lorem ipsum\n</div>');
             atomize();
 
             markup.on('keyup', atomize);
+            selectAll.on('click', function(){
+                atomicCSS.select();
+            });
 
             function atomize(){
                 var Atomizer = require('Atomizer');
@@ -72,6 +76,7 @@
                 var foundClasses = atomizer.findClassNames(markup.val());
                 var finalConfig = atomizer.getConfig(foundClasses, defaultConfig);
                 var acss = atomizer.getCss(finalConfig);
+                acss = '/**\n * Uses Atomizer build v3.2.1. \n * Copyright (c) 2015, Yahoo Inc. All rights reserved. \n *\n **/\n\n' + acss;
                 atomicCSS.val(acss);
             }
         });
