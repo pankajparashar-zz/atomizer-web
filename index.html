@@ -18,11 +18,12 @@
       <div class='app-section'>
         <div class='tabs-section'>
           <div class='tab css'>
-            <h2>Markup <a href="#" class="options">config</a></h2>
+            <h2>Markup <a class="options" id="config">config</a></h2>
           </div>
           <div class='tab sass'>
-            <h2>Atomic CSS <a href="#" class="options" id="select-all">select all</a></h2>
+            <h2>Atomic CSS <a class="options" id="select-all">select all</a></h2>
           </div>
+
         </div>
         <div class='code-section'>
           <form action='/' id='page' method='POST'>
@@ -34,6 +35,16 @@
             </div>
           </form>
         </div>
+        <div class="configjs">
+            <div class='tabs-section'>
+            <div style="width:100%">
+              <h2>Config <a class="options" id="select-all"></a></h2>
+            </div>
+            </div>
+            <div class='code-container left' style="width:100%">
+              <textarea id='configjs' style="resize:none"></textarea>
+            </div>
+        </div>
       </div>
     </div>
 
@@ -42,25 +53,13 @@
 
     <script>
         $(document).ready(function(){
-            markup = $('#markup');
-            atomicCSS = $('#atomic_css');
-            selectAll = $('#select-all');
+            var markup = $('#markup');
+            var atomicCSS = $('#atomic_css');
+            var selectAll = $('#select-all');
+            var config = $('#config');
+            $('#configjs').val(JSON.stringify({
 
-            // Example
-            markup.val('<!-- \n  Paste your markup here \n-->\n\n<div class="Bgc(#0280ae.5) C(#fff) P(20px)">\n  Lorem ipsum\n</div>');
-            atomize();
-
-            markup.on('keyup', atomize);
-            selectAll.on('click', function(){
-                atomicCSS.select();
-            });
-
-            function atomize(){
-                var Atomizer = require('Atomizer');
-                var atomizer = new Atomizer();
-
-                var defaultConfig = {
-                    "breakPoints": {
+                "breakPoints": {
                         'sm': '@media(min-width=750px)',
                         'md': '@media(min-width=1000px)',
                         'lg': '@media(min-width=1200px)'
@@ -70,14 +69,57 @@
                         "foo": "2px dotted #f00"
                     },
                     "classNames": [
-                    ]
-                };
+                        'Bd(1)',
+                        'Bd(foo)',
+                        'Bd(foo)--sm',
+                        'Bd(foo)--md',
+                        'D(n)!'
+                    ]}       , null, 2));
+
+            // Example
+            markup.val('<!-- \n  Paste your markup here \n-->\n\n<div class="Bgc(#0280ae.5) C(#fff) P(20px)">\n  Lorem ipsum\n</div>');
+            atomize();
+
+            markup.on('keyup', atomize);
+            $('.configjs').on('keyup', atomize);
+
+            selectAll.on('click', function(){
+                val = selectAll.text();
+                if(val === 'select all'){
+                    atomicCSS.select();
+                    selectAll.text('deselect all');
+                }
+                else {
+                    document.getSelection().removeAllRanges();
+                    selectAll.text('select all');
+                }
+
+            });
+            config.on('click', function(){
+                val = config.text();
+                if(val === 'config') {
+                    config.text('close');
+                    $('.configjs').slideToggle();
+                }
+                else {
+                    config.text('config');
+                    $('.configjs').slideToggle(200);
+                }
+            });
+
+            function atomize(){
+                var Atomizer = require('Atomizer');
+                var atomizer = new Atomizer();
 
                 var foundClasses = atomizer.findClassNames(markup.val());
-                var finalConfig = atomizer.getConfig(foundClasses, defaultConfig);
+                var finalConfig = atomizer.getConfig(foundClasses, getConfig());
                 var acss = atomizer.getCss(finalConfig);
                 acss = '/**\n * Uses Atomizer build v3.2.1. \n * Copyright (c) 2015, Yahoo Inc. All rights reserved. \n *\n **/\n\n' + acss;
                 atomicCSS.val(acss);
+            }
+
+            function getConfig(){
+                return JSON.parse($('#configjs').val());
             }
         });
     </script>

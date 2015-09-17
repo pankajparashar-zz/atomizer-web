@@ -428,7 +428,7 @@ a{
 }
 a:hover{
 	color: #3fa9f5;
-	
+
 }
 .wrapper{
 	height: 100%;
@@ -500,7 +500,7 @@ h1 span{
 {
 	width: 50%;
 }
-.tab h2{
+.tab h2, .configjs h2{
 
 	font-weight: normal;
 	text-transform: uppercase;
@@ -691,4 +691,13 @@ img {
 	color: #000;
 	display: inline-block;
 	float: right;
+    cursor: pointer;
+}
+
+.configjs {
+    position: absolute;
+    bottom: 50px;
+    display: none;
+    width: 50%;
+    height: 350px;
 }
