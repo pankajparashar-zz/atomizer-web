@@ -17,7 +17,7 @@
     <body>
 
         <header>
-            <h1>Atomizer <span>Web</span> — <cite>Web app to generate Atomic CSS for your markup</cite> <cite style="float:right;line-height:2.75">Made by <a href="http://pankajparashar.com">@pankajparashar</a> | Report Issues on <a href="https://github.com/pankajparashar/atomizer-web">Github</a></cite></h1>
+            <h1>Atomizer <span>Web</span> — <cite style="line-height:1.5">Web app to generate Atomic CSS for your markup</cite> <cite style="float:right;line-height:2.75">Made by <a href="http://pankajparashar.com">@pankajparashar</a> | Report Issues on <a href="https://github.com/pankajparashar/atomizer-web">Github</a></cite></h1>
         </header>
 
         <div class="left">
@@ -124,6 +124,8 @@
                 var editor1 = CodeMirror.fromTextArea(markup, {
                     mode : "xml",
                     htmlMode: true,
+                    indentUnit: 4,
+                    lineWrapping: true,
                     theme: 'duotone-dark-cm'
                 });
                 editor1.setSize("100%","100%");
@@ -131,6 +133,8 @@
                 var editor2 = CodeMirror.fromTextArea(css, {
                     mode: "css",
                     readOnly: true,
+                    indentUnit: 4,
+                    lineWrapping: true,
                     theme: 'duotone-dark-cm',
                 });
                 editor2.setSize("100%","100%");
@@ -138,6 +142,8 @@
                 var editor3 = CodeMirror.fromTextArea(config, {
                     mode: "javascript",
                     theme: 'duotone-dark-cm',
+                    indentUnit: 4,
+                    lineWrapping: true,                    
                 });
                 editor3.setSize("100%","100%");
                 $(editor3.getWrapperElement()).hide();
