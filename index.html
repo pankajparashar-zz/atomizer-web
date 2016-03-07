@@ -1,132 +1,232 @@
+<!DOCTYPE html>
 <html>
-  <head>
-      <meta charset="utf-8">
-      <title>Atomizer Web</title>
+    <head>
+        <meta charset="utf-8">
+        <title>Atomizer Web</title>
+        <meta content='Web app to generate Atomic CSS for your markup' name='description'>
+        <link rel="stylesheet" href="style.css" media="screen" title="no title" charset="utf-8">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.12.0/codemirror.min.css" media="screen" title="no title" charset="utf-8">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.12.0/codemirror.min.js" charset="utf-8"></script>
 
-      <link href='style.css' rel='stylesheet'>
-      <meta content='Web app for Aotmizer - Atomic CSS on steroids' name='description'>
-  </head>
-  <body>
-    <div class='wrapper'>
-      <div class='top-section'>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.12.0/mode/xml/xml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.12.0/mode/css/css.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.12.0/mode/javascript/javascript.min.js" charset="utf-8"></script>
+
+        <link rel="stylesheet" href="duotone-dark-cm.css" media="screen" title="no title" charset="utf-8">
+    </head>
+    <body>
+
         <header>
-          <h1>
-            Atomizer <span>Web</span> — <cite>Atomic CSS on steroids | by <a href="http://pankajparashar.com">@pankajparashar</a> | Report Issues on <a href="https://github.com/pankajparashar/atomizer-web">Github</a></cite>
-          </h1>
+            <h1>Atomizer <span>Web</span> — <cite>Web app to generate Atomic CSS for your markup</cite> <cite style="float:right;line-height:2.75">Made by <a href="http://pankajparashar.com">@pankajparashar</a> | Report Issues on <a href="https://github.com/pankajparashar/atomizer-web">Github</a></cite></h1>
         </header>
-      </div>
-      <div class='app-section'>
-        <div class='tabs-section'>
-          <div class='tab css'>
-            <h2>Markup <a class="options" id="config">config</a></h2>
-          </div>
-          <div class='tab sass'>
-            <h2>Atomic CSS <a class="options" id="select-all">select all</a></h2>
-          </div>
 
+        <div class="left">
+            <a class="option js-config" title="Configuration">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+                    <g>
+                    	<path d="M466.895,305.126c-26.862-46.526-10.708-106.152,36.076-133.244l-50.312-87.146c-14.375,8.427-31.088,13.259-48.923,13.259   c-53.769,0-97.354-43.873-97.354-97.995h-100.63c0.133,16.705-4.037,33.641-12.979,49.126   c-26.862,46.528-86.578,62.351-133.431,35.379L9.029,171.651c14.485,8.236,27.025,20.294,35.943,35.739   C71.792,253.844,55.729,313.35,9.119,340.502l50.313,87.146c14.325-8.348,30.958-13.126,48.7-13.126   c53.598,0,97.072,43.597,97.35,97.479h100.627c-0.043-16.537,4.136-33.285,12.982-48.609   c26.817-46.453,86.389-62.297,133.207-35.506l50.312-87.146C488.222,332.507,475.766,320.491,466.895,305.126z M256,359.667   c-57.254,0-103.668-46.412-103.668-103.667c0-57.254,46.413-103.667,103.668-103.667c57.254,0,103.667,46.413,103.667,103.667   C359.664,313.255,313.254,359.667,256,359.667z" fill="#eeebff"/>
+                    </g>
+                </svg>
+            </a>
+
+            <a class="option js-close" title="Close">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 27.965 27.965" style="enable-background:new 0 0 27.965 27.965;" xml:space="preserve" width="20px" height="20px">
+                    <g><g id="c142_x">
+                        <path d="M13.98,0C6.259,0,0,6.261,0,13.983c0,7.721,6.259,13.982,13.98,13.982c7.725,0,13.985-6.262,13.985-13.982    C27.965,6.261,21.705,0,13.98,0z M19.992,17.769l-2.227,2.224c0,0-3.523-3.78-3.786-3.78c-0.259,0-3.783,3.78-3.783,3.78    l-2.228-2.224c0,0,3.784-3.472,3.784-3.781c0-0.314-3.784-3.787-3.784-3.787l2.228-2.229c0,0,3.553,3.782,3.783,3.782    c0.232,0,3.786-3.782,3.786-3.782l2.227,2.229c0,0-3.785,3.523-3.785,3.787C16.207,14.239,19.992,17.769,19.992,17.769z" fill="#FFFFFF"/>
+                    </g></g>
+                </svg>
+            </a>
+
+            <textarea id='markup'>
+<!--
+    Copy-Paste your HTML markup here and the Atomic CSS will be
+    generated automatically on your right!
+    Feel free to tweak the default configuration as well.
+-->
+
+<div class="Bgc(#6c6783) C(#eeebff) Tt(u) Ff(f) Lts(10px) Fz(5em) Lh(80%) Ta(c) Va(m) Mt(2.5em)">
+    Preview
+</div></textarea>
+
+        <textarea id="config">
+{
+    "breakPoints": {
+        "sm": "@media(min-width=750px)",
+        "md": "@media(min-width=1000px)",
+        "lg": "@media(min-width=1200px)"
+    },
+    "custom": {
+        "1": "1px solid #000",
+        "foo": "2px dotted #f00"
+    },
+    "classNames": []
+}</textarea>
+        </div><!--
+
+
+
+        --><div class="right">
+            <a class="option" title="Copy to Clipboard" id="copy"  data-clipboard-action="copy" data-clipboard-target="#css">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 748 748" style="enable-background:new 0 0 748 748;" xml:space="preserve">
+                    <g><g>
+                        <path d="M68,109.14v631.72c0,3.943,3.128,7.14,7.004,7.14h495.958c3.91,0,7.038-3.162,7.038-7.14V109.14    c0-3.944-3.128-7.14-7.004-7.14H75.004C71.128,102,68,105.162,68,109.14z" fill="#eeebff"/>
+                        <polygon points="680,646 680,0 170,0 170,68 612,68 612,646   " fill="#eeebff"/>
+            	    </g></g>
+                </svg>
+            </a>
+<textarea id='css'>
+/**
+ * Generated using Atomizer build v3.2.1.
+ * Copyright (c) 2015, Yahoo Inc. All rights reserved.
+ *
+ **/
+
+.Bgc\(\#6c6783\) {
+  background-color: #6c6783;
+}
+.C\(\#eeebff\) {
+  color: #eeebff;
+}
+.Ff\(f\) {
+  font-family: Capitals, Impact, fantasy;
+}
+.Fz\(5em\) {
+  font-size: 5em;
+}
+.Lts\(10px\) {
+  letter-spacing: 10px;
+}
+.Lh\(80\%\) {
+  line-height: 80%;
+}
+.Mt\(2\.5em\) {
+  margin-top: 2.5em;
+}
+.Ta\(c\) {
+  text-align: center;
+}
+.Tt\(u\) {
+  text-transform: uppercase;
+}
+.Va\(m\) {
+  vertical-align: middle;
+}</textarea>
         </div>
-        <div class='code-section'>
-          <form action='/' id='page' method='POST'>
-            <div class='code-container left'>
-              <textarea id='markup'></textarea>
-            </div>
-            <div class='code-container right'>
-              <textarea id='atomic_css'></textarea>
-            </div>
-          </form>
-        </div>
-        <div class="configjs">
-            <div class='tabs-section'>
-            <div style="width:100%">
-              <h2>Config <a class="options" id="select-all"></a></h2>
-            </div>
-            </div>
-            <div class='code-container left' style="width:100%">
-              <textarea id='configjs' style="resize:none"></textarea>
-            </div>
-        </div>
-      </div>
-    </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="atomizer-web.js"></script>
+        <iframe></iframe>
 
-    <script>
-        $(document).ready(function(){
-            var markup = $('#markup');
-            var atomicCSS = $('#atomic_css');
-            var selectAll = $('#select-all');
-            var config = $('#config');
-            $('#configjs').val(JSON.stringify({
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js" charset="utf-8"></script>
+        <script src="atomizer-web.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.8/clipboard.min.js"></script>
 
-                "breakPoints": {
-                        'sm': '@media(min-width=750px)',
-                        'md': '@media(min-width=1000px)',
-                        'lg': '@media(min-width=1200px)'
-                    },
-                    "custom": {
-                        "1": "1px solid #000",
-                        "foo": "2px dotted #f00"
-                    },
-                    "classNames": [
-                    
-                    ]}       , null, 2));
+        <script>
+            $(document).ready(function(){
+                var editor1 = CodeMirror.fromTextArea(markup, {
+                    mode : "xml",
+                    htmlMode: true,
+                    theme: 'duotone-dark-cm'
+                });
+                editor1.setSize("100%","100%");
 
-            // Example
-            markup.val('<!-- \n  Paste your markup here \n-->\n\n<div class="Bgc(#0280ae.5) C(#fff) P(20px)">\n  Lorem ipsum\n</div>');
-            atomize();
+                var editor2 = CodeMirror.fromTextArea(css, {
+                    mode: "css",
+                    readOnly: true,
+                    theme: 'duotone-dark-cm',
+                });
+                editor2.setSize("100%","100%");
 
-            markup.on('keyup', atomize);
-            $('.configjs').on('keyup', atomize);
+                var editor3 = CodeMirror.fromTextArea(config, {
+                    mode: "javascript",
+                    theme: 'duotone-dark-cm',
+                });
+                editor3.setSize("100%","100%");
+                $(editor3.getWrapperElement()).hide();
 
-            selectAll.on('click', function(){
-                val = selectAll.text();
-                if(val === 'select all'){
-                    atomicCSS.select();
-                    selectAll.text('deselect all');
+                var iframe = $('iframe'),
+                    body = iframe.contents().find('body'),
+                    style = iframe.contents().find('head').append('<style></style>').children('style');
+
+                body.html(editor1.getValue());
+                style.text(editor2.getValue());
+
+                editor1.on('change', function(cm){
+                    var Atomizer = require('Atomizer');
+                    var atomizer = new Atomizer();
+
+                    var foundClasses = atomizer.findClassNames(editor1.getValue());
+                    var finalConfig = atomizer.getConfig(foundClasses, getConfig());
+                    var acss = atomizer.getCss(finalConfig);
+                    acss = '/**\n * Generated using Atomizer build v3.2.1. \n * Copyright (c) 2015, Yahoo Inc. All rights reserved. \n *\n **/\n\n' + acss.trim();
+
+                    editor2.setValue(acss);
+                    editor2.save();
+
+                    body.html(editor1.getValue());
+                    style.text(editor2.getValue());
+                });
+
+                editor3.on('change', function(cm){
+                    var Atomizer = require('Atomizer');
+                    var atomizer = new Atomizer();
+
+                    var foundClasses = atomizer.findClassNames(editor1.getValue());
+                    var finalConfig = atomizer.getConfig(foundClasses, getConfig());
+                    var acss = atomizer.getCss(finalConfig);
+                    acss = '/**\n * Generated using Atomizer build v3.2.1. \n * Copyright (c) 2015, Yahoo Inc. All rights reserved. \n *\n **/\n\n' + acss.trim();
+
+                    editor2.setValue(acss);
+
+                    body.html(editor1.getValue());
+                    style.text(editor2.getValue());
+                });
+
+                $('.js-config').on('click', function(){
+                    $(editor1.getWrapperElement()).toggle();
+                    $(editor3.getWrapperElement()).toggle();
+
+                    $('.js-config').toggle();
+                    $('.js-close').toggle();
+                });
+
+                $('.js-close').on('click', function(){
+                    $(editor1.getWrapperElement()).toggle();
+                    $(editor3.getWrapperElement()).toggle();
+
+                    $('.js-config').toggle();
+                    $('.js-close').toggle();
+                });
+
+                function getConfig(){
+                    return JSON.parse(editor3.getValue());
                 }
-                else {
-                    document.getSelection().removeAllRanges();
-                    selectAll.text('select all');
-                }
 
+                var clipboard = new Clipboard('#copy');
+                clipboard.on('success', function(e) {
+                    console.info('Action:', e.action);
+                    console.info('Text:', e.text);
+                    console.info('Trigger:', e.trigger);
+
+                    alert('Generated CSS successfully copied to the Clipboard.');
+                    e.clearSelection();
+                });
+
+                clipboard.on('error', function(e) {
+                    console.error('Action:', e.action);
+                    console.error('Trigger:', e.trigger);
+
+                    alert('Error while copying to Clipboard! Please try again!');
+                });
             });
-            config.on('click', function(){
-                val = config.text();
-                if(val === 'config') {
-                    config.text('close');
-                    $('.configjs').slideToggle();
-                }
-                else {
-                    config.text('config');
-                    $('.configjs').slideToggle(200);
-                }
-            });
+        </script>
 
-            function atomize(){
-                var Atomizer = require('Atomizer');
-                var atomizer = new Atomizer();
+        <script>
+            !function(g,s,q,r,d){r=g[r]=g[r]||function(){(r.q=r.q||[]).push(
+            arguments)};d=s.createElement(q);q=s.getElementsByTagName(q)[0];
+            d.src='//d1l6p2sc9645hc.cloudfront.net/tracker.js';q.parentNode.
+            insertBefore(d,q)}(window,document,'script','_gs');
 
-                var foundClasses = atomizer.findClassNames(markup.val());
-                var finalConfig = atomizer.getConfig(foundClasses, getConfig());
-                var acss = atomizer.getCss(finalConfig);
-                acss = '/**\n * Uses Atomizer build v3.2.1. \n * Copyright (c) 2015, Yahoo Inc. All rights reserved. \n *\n **/\n\n' + acss;
-                atomicCSS.val(acss);
-            }
+            _gs('GSN-360111-P');
+        </script>
 
-            function getConfig(){
-                return JSON.parse($('#configjs').val());
-            }
-        });
-    </script>
-    
-    <script>
-  !function(g,s,q,r,d){r=g[r]=g[r]||function(){(r.q=r.q||[]).push(
-  arguments)};d=s.createElement(q);q=s.getElementsByTagName(q)[0];
-  d.src='//d1l6p2sc9645hc.cloudfront.net/tracker.js';q.parentNode.
-  insertBefore(d,q)}(window,document,'script','_gs');
-
-  _gs('GSN-360111-P');
-</script>
-  </body>
+    </body>
 </html>
