@@ -5,7 +5,7 @@ Author:     adapted from: Simurai (https://github.com/simurai/duotone-dark-synta
 CodeMirror template by Jan T. Sott (https://github.com/idleberg), adapted by Bram de Haan (https://github.com/atelierbram/)
 */
 
-.cm-s-duotone-dark-cm.CodeMirror { background: #2a2734; color: #6c6783; font-size: 16px; font-family: "mono", Consolas, monospace; line-height: 1.5}
+.cm-s-duotone-dark-cm.CodeMirror { background: #2a2734; color: #6c6783; font-size: 16px; font-family: Mono, "Monaco", Consolas, monospace; line-height: 1.5; word-spacing: 1px;}
 .cm-s-duotone-dark-cm div.CodeMirror-selected { background: #545167 !important; }
 .cm-s-duotone-dark-cm .CodeMirror-gutters { background: #2a2734; border-right: 0px; }
 .cm-s-duotone-dark-cm .CodeMirror-linenumber { color: #545167; }
@@ -74,10 +74,16 @@ CodeMirror template by Jan T. Sott (https://github.com/idleberg), adapted by Bra
 
 .cm-s-duotone-dark-cm span.cm-variable-2, .cm-s-duotone-dark-cm span.cm-variable-3, .cm-s-duotone-dark-cm span.cm-string-2, .cm-s-duotone-dark-cm span.cm-url { color: #6a51e6; }
 .cm-s-duotone-dark-cm span.cm-def, .cm-s-duotone-dark-cm span.cm-tag, .cm-s-duotone-dark-cm span.cm-builtin, .cm-s-duotone-dark-cm span.cm-qualifier, .cm-s-duotone-dark-cm span.cm-header, .cm-s-duotone-dark-cm span.cm-em { color: #eeebff; }
-.cm-s-duotone-dark-cm span.cm-bracket, .cm-s-duotone-dark-cm span.cm-comment { color: #6c6783; font-style: italic; font-family: 'operator-mono';}
+.cm-s-duotone-dark-cm span.cm-bracket, .cm-s-duotone-dark-cm span.cm-comment { color: #6c6783; }
 /* using #f00 red for errors, don't think any of the colorscheme variables will stand out enough, ... maybe by giving it a background-color ... */
 /* .cm-s-duotone-dark-cm span.cm-error { background: #6a51e6; color: #ffcc99; } */
 .cm-s-duotone-dark-cm span.cm-error, .cm-s-duotone-dark-cm span.cm-invalidchar { color: #f00; }
 
 .cm-s-duotone-dark-cm span.cm-header { font-weight: normal; }
 .cm-s-duotone-dark-cm .CodeMirror-matchingbracket { text-decoration: underline; color: #eeebff !important; }
+
+.CodeMirror-linenumber {
+    padding: 0px 15px 0 5px;
+
+    margin-right: 5px;
+}

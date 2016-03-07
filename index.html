@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <title>Atomizer Web</title>
         <meta content='Web app to generate Atomic CSS for your markup' name='description'>
-        <link rel="stylesheet" href="style.css?v=2.02" media="screen" title="no title" charset="utf-8">
+        <link rel="stylesheet" href="style.css?v=2.03" media="screen" title="no title" charset="utf-8">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.12.0/codemirror.min.css" media="screen" title="no title" charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.12.0/codemirror.min.js" charset="utf-8"></script>
 
@@ -17,34 +17,42 @@
     <body>
 
         <header>
-            <h1>Atomizer <span>Web</span> — <cite style="line-height:1.5">Web app to generate Atomic CSS for your markup</cite> <cite style="float:right;line-height:2.75">Made by <a href="http://pankajparashar.com">@pankajparashar</a> | Report Issues on <a href="https://github.com/pankajparashar/atomizer-web">Github</a></cite></h1>
+            <h1>Atomizer <span>Web</span> <cite style="float:right;line-height:2.75">
+
+
+                <a href="https://pankajparashar.com" style="line-height: 2; display: block" target='_blank'>
+                    <img src="https://cdn-images-1.medium.com/fit/c/100/100/1*2y4U5nB-Y9sWZExF4D6LYg.jpeg" alt="Pankaj Parashar's Face" style="border-radius: 100%; width: 30px; height: 30px">
+                </a>
+
+            </cite>
+
+        </h1>
         </header>
 
         <div class="left">
-            <a class="option js-config" title="Configuration">
-                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
-                    <g>
-                    	<path d="M466.895,305.126c-26.862-46.526-10.708-106.152,36.076-133.244l-50.312-87.146c-14.375,8.427-31.088,13.259-48.923,13.259   c-53.769,0-97.354-43.873-97.354-97.995h-100.63c0.133,16.705-4.037,33.641-12.979,49.126   c-26.862,46.528-86.578,62.351-133.431,35.379L9.029,171.651c14.485,8.236,27.025,20.294,35.943,35.739   C71.792,253.844,55.729,313.35,9.119,340.502l50.313,87.146c14.325-8.348,30.958-13.126,48.7-13.126   c53.598,0,97.072,43.597,97.35,97.479h100.627c-0.043-16.537,4.136-33.285,12.982-48.609   c26.817-46.453,86.389-62.297,133.207-35.506l50.312-87.146C488.222,332.507,475.766,320.491,466.895,305.126z M256,359.667   c-57.254,0-103.668-46.412-103.668-103.667c0-57.254,46.413-103.667,103.668-103.667c57.254,0,103.667,46.413,103.667,103.667   C359.664,313.255,313.254,359.667,256,359.667z" fill="#eeebff"/>
-                    </g>
-                </svg>
-            </a>
 
-            <a class="option js-close" title="Close">
-                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 27.965 27.965" style="enable-background:new 0 0 27.965 27.965;" xml:space="preserve" width="20px" height="20px">
-                    <g><g id="c142_x">
-                        <path d="M13.98,0C6.259,0,0,6.261,0,13.983c0,7.721,6.259,13.982,13.98,13.982c7.725,0,13.985-6.262,13.985-13.982    C27.965,6.261,21.705,0,13.98,0z M19.992,17.769l-2.227,2.224c0,0-3.523-3.78-3.786-3.78c-0.259,0-3.783,3.78-3.783,3.78    l-2.228-2.224c0,0,3.784-3.472,3.784-3.781c0-0.314-3.784-3.787-3.784-3.787l2.228-2.229c0,0,3.553,3.782,3.783,3.782    c0.232,0,3.786-3.782,3.786-3.782l2.227,2.229c0,0-3.785,3.523-3.785,3.787C16.207,14.239,19.992,17.769,19.992,17.769z" fill="#FFFFFF"/>
-                    </g></g>
-                </svg>
-            </a>
+            <a class="option js-config" title="Configuration" style="">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+<g>
+<path d="M466.895,305.126c-26.862-46.526-10.708-106.152,36.076-133.244l-50.312-87.146c-14.375,8.427-31.088,13.259-48.923,13.259   c-53.769,0-97.354-43.873-97.354-97.995h-100.63c0.133,16.705-4.037,33.641-12.979,49.126   c-26.862,46.528-86.578,62.351-133.431,35.379L9.029,171.651c14.485,8.236,27.025,20.294,35.943,35.739   C71.792,253.844,55.729,313.35,9.119,340.502l50.313,87.146c14.325-8.348,30.958-13.126,48.7-13.126   c53.598,0,97.072,43.597,97.35,97.479h100.627c-0.043-16.537,4.136-33.285,12.982-48.609   c26.817-46.453,86.389-62.297,133.207-35.506l50.312-87.146C488.222,332.507,475.766,320.491,466.895,305.126z M256,359.667   c-57.254,0-103.668-46.412-103.668-103.667c0-57.254,46.413-103.667,103.668-103.667c57.254,0,103.667,46.413,103.667,103.667   C359.664,313.255,313.254,359.667,256,359.667z" fill="#eeebff"></path>
+</g>
+</svg>
+</a>
+
+<a class="option js-close" title="Close" style="display: none;">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 27.965 27.965" style="enable-background:new 0 0 27.965 27.965;" xml:space="preserve" width="20px" height="20px">
+<g><g id="c142_x">
+<path d="M13.98,0C6.259,0,0,6.261,0,13.983c0,7.721,6.259,13.982,13.98,13.982c7.725,0,13.985-6.262,13.985-13.982    C27.965,6.261,21.705,0,13.98,0z M19.992,17.769l-2.227,2.224c0,0-3.523-3.78-3.786-3.78c-0.259,0-3.783,3.78-3.783,3.78    l-2.228-2.224c0,0,3.784-3.472,3.784-3.781c0-0.314-3.784-3.787-3.784-3.787l2.228-2.229c0,0,3.553,3.782,3.783,3.782    c0.232,0,3.786-3.782,3.786-3.782l2.227,2.229c0,0-3.785,3.523-3.785,3.787C16.207,14.239,19.992,17.769,19.992,17.769z" fill="#FFFFFF"></path>
+</g></g>
+</svg>
+</a>
 
             <textarea id='markup'>
 &lt;!--
-    Copy-Paste your HTML markup here and the Atomic CSS will be
-    generated automatically on your right!
-    Feel free to tweak the default configuration as well.
---&gt;
+Paste your HTML markup here. Alternatively you could also configure
+the default options by clicking on the gear icon. --&gt;
 
-<div class="Bgc(#6c6783) C(#eeebff) Tt(u) Ff(f) Lts(10px) Fz(5em) Lh(80%) Ta(c) Va(m) Mt(2.5em)">
+<div class="Bgc(#6c6783) C(#eeebff) Tt(u) Ff(f) Lts(10px) Fz(5em) Lh(80%) Ta(c) Mt(2.5em)">
     Preview
 </div></textarea>
 
@@ -66,50 +74,41 @@
 
 
         --><div class="right">
-            <a class="option" title="Copy to Clipboard" id="copy"  data-clipboard-action="copy" data-clipboard-target="#css">
-                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 748 748" style="enable-background:new 0 0 748 748;" xml:space="preserve">
-                    <g><g>
-                        <path d="M68,109.14v631.72c0,3.943,3.128,7.14,7.004,7.14h495.958c3.91,0,7.038-3.162,7.038-7.14V109.14    c0-3.944-3.128-7.14-7.004-7.14H75.004C71.128,102,68,105.162,68,109.14z" fill="#eeebff"/>
-                        <polygon points="680,646 680,0 170,0 170,68 612,68 612,646   " fill="#eeebff"/>
-            	    </g></g>
-                </svg>
-            </a>
+
 <textarea id='css'>
 /**
  * Generated using Atomizer build v3.2.1.
- * Copyright (c) 2015, Yahoo Inc. All rights reserved.
- *
- **/
+ * Copyright (c) 2015, Yahoo Inc. All rights reserved. **/
 
 .Bgc\(\#6c6783\) {
-  background-color: #6c6783;
+    background-color: #6c6783;
 }
 .C\(\#eeebff\) {
-  color: #eeebff;
+    color: #eeebff;
 }
 .Ff\(f\) {
-  font-family: Capitals, Impact, fantasy;
+    font-family: Capitals, Impact, fantasy;
 }
 .Fz\(5em\) {
-  font-size: 5em;
+    font-size: 5em;
 }
 .Lts\(10px\) {
-  letter-spacing: 10px;
+    letter-spacing: 10px;
 }
 .Lh\(80\%\) {
-  line-height: 80%;
+    line-height: 80%;
 }
 .Mt\(2\.5em\) {
-  margin-top: 2.5em;
+    margin-top: 2.5em;
 }
 .Ta\(c\) {
-  text-align: center;
+    text-align: center;
 }
 .Tt\(u\) {
-  text-transform: uppercase;
+    text-transform: uppercase;
 }
 .Va\(m\) {
-  vertical-align: middle;
+    vertical-align: middle;
 }</textarea>
         </div>
 
@@ -125,6 +124,7 @@
                     mode : "xml",
                     htmlMode: true,
                     indentUnit: 4,
+                    lineNumbers: true,
                     lineWrapping: true,
                     theme: 'duotone-dark-cm'
                 });
@@ -134,6 +134,7 @@
                     mode: "css",
                     readOnly: true,
                     indentUnit: 4,
+                    lineNumbers: true,
                     lineWrapping: true,
                     theme: 'duotone-dark-cm',
                 });
@@ -143,7 +144,8 @@
                     mode: "javascript",
                     theme: 'duotone-dark-cm',
                     indentUnit: 4,
-                    lineWrapping: true,                    
+                    lineNumbers: true,
+                    lineWrapping: true,
                 });
                 editor3.setSize("100%","100%");
                 $(editor3.getWrapperElement()).hide();
@@ -153,6 +155,7 @@
                     style = iframe.contents().find('head').append('<style></style>').children('style');
 
                 body.html(editor1.getValue());
+                //body.style.margin = 0;
                 style.text(editor2.getValue());
 
                 editor1.on('change', function(cm){
@@ -162,7 +165,7 @@
                     var foundClasses = atomizer.findClassNames(editor1.getValue());
                     var finalConfig = atomizer.getConfig(foundClasses, getConfig());
                     var acss = atomizer.getCss(finalConfig);
-                    acss = '/**\n * Generated using Atomizer build v3.2.1. \n * Copyright (c) 2015, Yahoo Inc. All rights reserved. \n *\n **/\n\n' + acss.trim();
+                    acss = '/**\n * Generated using Atomizer build v3.2.1. \n * Copyright (c) 2015, Yahoo Inc. All rights reserved. **/\n\n' + acss.trim();
 
                     editor2.setValue(acss);
                     editor2.save();
