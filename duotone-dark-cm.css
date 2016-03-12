@@ -5,7 +5,7 @@ Author:     adapted from: Simurai (https://github.com/simurai/duotone-dark-synta
 CodeMirror template by Jan T. Sott (https://github.com/idleberg), adapted by Bram de Haan (https://github.com/atelierbram/)
 */
 
-.cm-s-duotone-dark-cm.CodeMirror { background: #2a2734; color: #6c6783; font-size: 16px; font-family: Mono, "Monaco", Consolas, monospace; line-height: 1.5; word-spacing: 1px;}
+.cm-s-duotone-dark-cm.CodeMirror { background: #2a2734; color: #6c6783; font-size: 16px; font-family: Consolas, "Monaco", Consolas, monospace; line-height: 1.5; word-spacing: 1px;}
 .cm-s-duotone-dark-cm div.CodeMirror-selected { background: #545167 !important; }
 .cm-s-duotone-dark-cm .CodeMirror-gutters { background: #2a2734; border-right: 0px; }
 .cm-s-duotone-dark-cm .CodeMirror-linenumber { color: #545167; }

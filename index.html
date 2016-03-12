@@ -17,16 +17,15 @@
     <body>
 
         <header>
-            <h1>Atomizer <span>Web</span> <cite style="float:right;line-height:2.75">
+            <h1>Atomizer <span>Web</span>
+                <cite>– Web app for Atomizer</cite>
 
 
-                <a href="https://pankajparashar.com" style="line-height: 2; display: block" target='_blank'>
-                    <img src="https://cdn-images-1.medium.com/fit/c/100/100/1*2y4U5nB-Y9sWZExF4D6LYg.jpeg" alt="Pankaj Parashar's Face" style="border-radius: 100%; width: 30px; height: 30px">
-                </a>
-
-            </cite>
-
-        </h1>
+                <cite style="float:right;line-height:2.25;display:inline-block;">
+                    <span><a href="http://acss.io/">What is Atomic CSS?</a></span>
+                    <span><a href="http://acss.io/reference">Syntax</a></span>
+                </cite>
+            </h1>
         </header>
 
         <div class="left">
@@ -49,10 +48,10 @@
 
             <textarea id='markup'>
 &lt;!--
-Paste your HTML markup here. Alternatively you could also configure
-the default options by clicking on the gear icon. --&gt;
+Paste your HTML markup here. Alternatively, configure
+the default options by clicking on the gear icon  --&gt;
 
-<div class="Bgc(#6c6783) C(#eeebff) Tt(u) Ff(f) Lts(10px) Fz(5em) Lh(80%) Ta(c) Mt(2.5em)">
+<div class="D(f) Jc(c) Ai(c) H(100%) Fz(20vh) Ff(m)">
     Preview
 </div></textarea>
 
@@ -78,38 +77,27 @@ the default options by clicking on the gear icon. --&gt;
 <textarea id='css'>
 /**
  * Generated using Atomizer build v3.2.1.
- * Copyright (c) 2015, Yahoo Inc. All rights reserved. **/
+ * Copyright (c) 2015, Yahoo Inc.
+ * All rights reserved. **/
 
-.Bgc\(\#6c6783\) {
-    background-color: #6c6783;
-}
-.C\(\#eeebff\) {
-    color: #eeebff;
-}
-.Ff\(f\) {
-    font-family: Capitals, Impact, fantasy;
-}
-.Fz\(5em\) {
-    font-size: 5em;
-}
-.Lts\(10px\) {
-    letter-spacing: 10px;
-}
-.Lh\(80\%\) {
-    line-height: 80%;
-}
-.Mt\(2\.5em\) {
-    margin-top: 2.5em;
-}
-.Ta\(c\) {
-    text-align: center;
-}
-.Tt\(u\) {
-    text-transform: uppercase;
-}
-.Va\(m\) {
-    vertical-align: middle;
-}</textarea>
+ .D\(f\) {
+   display: flex;
+ }
+ .Ai\(c\) {
+   align-items: center;
+ }
+ .Jc\(c\) {
+   justify-content: center;
+ }
+ .Ff\(m\) {
+   font-family: Monaco, "Courier New", monospace;
+ }
+ .Fz\(20vh\) {
+   font-size: 20vh;
+ }
+ .H\(100\%\) {
+   height: 100%;
+ }</textarea>
         </div>
 
         <iframe></iframe>
@@ -124,7 +112,7 @@ the default options by clicking on the gear icon. --&gt;
                     mode : "xml",
                     htmlMode: true,
                     indentUnit: 4,
-                    lineNumbers: true,
+                    //lineNumbers: true,
                     lineWrapping: true,
                     theme: 'duotone-dark-cm'
                 });
@@ -134,7 +122,7 @@ the default options by clicking on the gear icon. --&gt;
                     mode: "css",
                     readOnly: true,
                     indentUnit: 4,
-                    lineNumbers: true,
+                    //lineNumbers: true,
                     lineWrapping: true,
                     theme: 'duotone-dark-cm',
                 });
@@ -144,7 +132,7 @@ the default options by clicking on the gear icon. --&gt;
                     mode: "javascript",
                     theme: 'duotone-dark-cm',
                     indentUnit: 4,
-                    lineNumbers: true,
+                    //lineNumbers: true,
                     lineWrapping: true,
                 });
                 editor3.setSize("100%","100%");
